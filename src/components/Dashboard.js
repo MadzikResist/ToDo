@@ -3,7 +3,7 @@ import backgroundMobile from 'images/backgroundMobile.png';
 import background2 from 'images/background2.png';
 
 const Container = styled.div`
-  min-height: 100vh;
+  height: 100vh;
   padding: 16px 0;
   background: url(${backgroundMobile}) center/cover;
   background-size: contain;
@@ -13,14 +13,14 @@ const Container = styled.div`
   justify-content: center;
 
   @media (min-width: 1200px) {
-    height: 100vh;
+    min-height: 100vh;
     background: url(${background2}) center/cover no-repeat;
   }
 `;
 const ListContainer = styled.div`
   background: rgba(184, 140, 97, 0.7);
   width: 90%;
-  height: auto;
+  height: 99%;
   //border: 8px solid #d2b79e;
   border: 8px solid #ffd7b5;
   display: flex;
@@ -47,13 +47,15 @@ const Text = styled.h1`
 const Title = styled.h2`
   margin: 0;
   color: white;
-
   width: 100%;
   word-wrap: break-word;
   font-size: 1.6rem;
 
   @media (min-width: 1200px) {
     width: 90%;
+  }
+  @media (min-width: 1500px) {
+    width: 70%;
   }
 `;
 const Date = styled.p`
@@ -64,6 +66,9 @@ const Date = styled.p`
   @media (min-width: 1200px) {
     width: 100%;
   }
+  @media (min-width: 1920px) {
+    width: 30%;
+  }
 `;
 const TextToDo = styled.p`
   width: 100%;
@@ -73,11 +78,13 @@ const TextToDo = styled.p`
     margin: 0;
     padding: 0;
   }
+  @media (min-width: 1920px) {
+    width: 68%;
+  }
 `;
 const CheckDone = styled.input`
   width: 24px;
   height: 24px;
-  padding: 0;
   margin: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -99,8 +106,9 @@ const CheckDone = styled.input`
     text-align: center;
     color: white;
     position: absolute;
-    left: 0.7rem;
-    top: 0.2rem;
+    left: 0;
+    top: 0;
+    transform: translateX(50%);
   }
   :active {
     border: 2px solid #34495e;
@@ -128,6 +136,7 @@ const List = styled.div`
   margin-bottom: 16px;
   align-items: center;
   padding: 8px;
+  overflow-y: auto;
   @media (min-width: 1200px) {
     width: 90%;
     margin-bottom: 16px;
@@ -149,6 +158,10 @@ const ListElement = styled.div`
     align-items: center;
     flex-direction: row;
   }
+  @media (min-width: 1920px) {
+    width: 95%;
+    justify-content: start;
+  }
 `;
 const Buttons = styled.div`
   display: flex;
@@ -158,6 +171,14 @@ const Buttons = styled.div`
   @media (min-width: 1200px) {
     margin-top: 0;
     align-items: end;
+  }
+  @media (min-width: 1400px) {
+    align-items: center;
+    width: 100%;
+  }
+  @media (min-width: 1920px) {
+    align-items: center;
+    width: 30%;
   }
 `;
 const CheckBoxLabel = styled.label`
@@ -179,10 +200,21 @@ const AddButton = styled.svg`
   }
 `;
 const TitleDate = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   @media (min-width: 1200px) {
     width: 40%;
+    height: 100%;
+    justify-content: space-between;
+  }
+  @media (min-width: 1920px) {
+    flex-direction: row;
+    width: 40%;
+    margin: 0;
+    padding: 0;
+    justify-content: start;
+    gap: 16px;
   }
 `;
 const TextButtons = styled.div`
@@ -194,6 +226,12 @@ const TextButtons = styled.div`
   @media (min-width: 1200px) {
     width: 60%;
     height: 100%;
+  }
+  @media (min-width: 1920px) {
+    flex-direction: row;
+    width: 60%;
+    justify-content: start;
+    gap: 16px;
   }
 `;
 const Dashboard = () => {
@@ -210,7 +248,7 @@ const Dashboard = () => {
             <TextButtons>
               <TextToDo>
                 Musze przytulić swojego
-                chłopakfffffgkdfngdgfjdgjdfjgldkgjldfjldjlkgjdlgfjlfdjflgjlkjlja
+                chłopakfffffgkdfngdgfjdgjdfjgldkgjldfjldjlkgjdlgfjlfdjflgjlkjljaddddddddddddddddddddddddddddd{' '}
               </TextToDo>
               <Buttons>
                 <CheckBoxLabel>
@@ -234,10 +272,7 @@ const Dashboard = () => {
               <Date>20.20.2022</Date>
             </TitleDate>
             <TextButtons>
-              <TextToDo>
-                Musze przytulić swojego
-                chłopakfffffgkdfngdgfjdgjdfjgldkgjldfjldjlkgjdlgfjlfdjflgjlkjlja
-              </TextToDo>
+              <TextToDo>Musze przytulić swojego</TextToDo>
               <Buttons>
                 <CheckBoxLabel>
                   <CheckDone type="checkbox"></CheckDone>
