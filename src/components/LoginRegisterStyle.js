@@ -99,6 +99,7 @@ export const Button = styled.button`
   background: url(${buttonImage}) center/cover no-repeat;
   border: none;
   margin-bottom: 32px;
+  cursor: pointer;
   :hover {
     color: #67642d;
   }

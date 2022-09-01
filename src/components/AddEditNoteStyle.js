@@ -1,24 +1,22 @@
 import styled from 'styled-components';
 import backgroundMobile from 'images/backgroundMobile.png';
 import background2 from 'images/background2.png';
-import { Button } from './LoginRegisterStyle';
+import buttonImage from 'images/buttonImage.png';
 
-const Container = styled.div`
+export const Container = styled.div`
   min-height: 100vh;
   padding: 16px 0;
   background: url(${backgroundMobile}) center/cover;
-  background-size: contain;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-
+  justify-content: start;
   @media (min-width: 1200px) {
     height: 100vh;
     background: url(${background2}) center/cover no-repeat;
   }
 `;
-const NoteContainer = styled.div`
+export const NoteContainer = styled.div`
   background: rgba(184, 140, 97, 0.7);
   width: 90%;
   height: 99%;
@@ -31,25 +29,25 @@ const NoteContainer = styled.div`
     height: 80%;
     display: flex;
     padding: 0 24px;
-    justify-content: center;
+    justify-content: start;
   }
 `;
-const List = styled.div`
+export const List = styled.div`
   width: 100%;
   height: 80%;
   display: flex;
   flex-direction: column;
-
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   align-items: center;
   padding: 8px;
   overflow-y: auto;
   @media (min-width: 1200px) {
     width: 90%;
     justify-content: center;
+    margin-bottom: 0;
   }
 `;
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -57,7 +55,7 @@ const Form = styled.form`
   gap: 16px;
   align-items: center;
 `;
-const TitleDate = styled.div`
+export const TitleDate = styled.div`
   display: flex;
   width: 100%;
   gap: 16px;
@@ -68,8 +66,8 @@ const TitleDate = styled.div`
     flex-direction: row;
   }
 `;
-const InputTitle = styled.input`
-  font-size: 3rem;
+export const InputTitle = styled.input`
+  font-size: 2rem;
   background: transparent;
   text-align: center;
   color: white;
@@ -86,12 +84,15 @@ const InputTitle = styled.input`
     }
     outline: none;
   }
+  @media (min-width: 769px) {
+    font-size: 3rem;
+  }
   @media (min-width: 1200px) {
     width: 80%;
     margin-top: 0;
   }
 `;
-const InputDate = styled.input`
+export const InputDate = styled.input`
   text-align: center;
   font-size: 1rem;
   background: transparent;
@@ -118,7 +119,7 @@ const InputDate = styled.input`
     padding: 0 16px 0 0;
   }
 `;
-const InputText = styled.textarea`
+export const InputText = styled.textarea`
   color: white;
   width: 100%;
   height: 35vh;
@@ -139,22 +140,44 @@ const InputText = styled.textarea`
     outline: none;
   }
 `;
-const AddEditNote = () => {
-  return (
-    <Container>
-      <NoteContainer>
-        <List>
-          <Form>
-            <TitleDate>
-              <InputTitle type="text" placeholder={'Title'} />
-              <InputDate type="date" />
-            </TitleDate>
-            <InputText placeholder={'text'} spellCheck={false} />
-            <Button>Save</Button>
-          </Form>
-        </List>
-      </NoteContainer>
-    </Container>
-  );
-};
-export default AddEditNote;
+export const Text = styled.h1`
+  font-size: 2.5rem;
+  color: #ab815a;
+  text-align: center;
+  padding: 2% 0;
+  @media (min-width: 769px) {
+    font-size: 5rem;
+    color: #ab815a;
+    width: 100%;
+    padding: 16px 0;
+  }
+`;
+export const Button = styled.button`
+  font-size: 1.5rem;
+  height: 70px;
+  width: 170px;
+  color: #ab815a;
+  font-weight: 600;
+  background: url(${buttonImage}) center/cover no-repeat;
+  border: none;
+  margin-bottom: 32px;
+  cursor: pointer;
+  :hover {
+    color: #67642d;
+  }
+  @media (min-width: 769px) {
+    height: 90px;
+    width: 220px;
+    margin: 0 0 16px 0;
+  }
+`;
+export const BackArrow = styled.svg`
+  fill: #ab815a;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 64px;
+  left: 16px;
+  transform: translateX(50%);
+  cursor: pointer;
+`;
