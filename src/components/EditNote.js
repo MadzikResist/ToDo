@@ -12,9 +12,36 @@ import {
   Button,
   BackArrow,
 } from './AddEditNoteStyle';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const EditNote = () => {
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const [title, setTitle] = useState(state.title);
+  const [text, setText] = useState(state.text);
+  const [date, setDate] = useState(state.date);
+
+  const EditNoteFunction = async () => {
+    await axios.put('http://localhost:3001/api/notes/' + state?._id, { title, text, date });
+    navigate('/dashboard');
+    console.log(title, text, date);
+  };
+
+  const changeTitleChandler = (event) => {
+    const value = event.target.value;
+    setTitle(value);
+  };
+  const changeTextChandler = (event) => {
+    const value = event.target.value;
+    setText(value);
+  };
+  const changeDateChandler = (event) => {
+    const value = event.target.value;
+    setDate(value);
+  };
   return (
     <Container>
       <Link to="/dashboard" style={{ textDecoration: 'underline', textDecorationColor: ' white' }}>
@@ -27,13 +54,26 @@ const EditNote = () => {
         <List>
           <Form>
             <TitleDate>
-              <InputTitle type="text" placeholder={'Title'} />
-              <InputDate type="date" />
+              <InputTitle
+                type="text"
+                defaultValue={state?.title}
+                spellCheck={false}
+                onChange={changeTitleChandler}
+              />
+              <InputDate
+                type="date"
+                value={new Date(date)?.toISOString()?.substring(0, 10)}
+                onChange={changeDateChandler}
+              />
             </TitleDate>
-            <InputText placeholder={'text'} spellCheck={false} />
+            <InputText
+              defaultValue={state?.text}
+              spellCheck={false}
+              onChange={changeTextChandler}
+            />
           </Form>
         </List>
-        <Button>Save</Button>
+        <Button onClick={EditNoteFunction}>Save</Button>
       </NoteContainer>
     </Container>
   );

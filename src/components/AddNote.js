@@ -13,8 +13,33 @@ import {
   BackArrow,
 } from './AddEditNoteStyle';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const AddNote = () => {
+  const navigate = useNavigate();
+  const [title, setTitle] = useState('');
+  const [text, setText] = useState('');
+  const [date, setDate] = useState();
+  const [done, setDone] = useState(false);
+
+  const addNoteFunction = async () => {
+    await axios.post('http://localhost:3001/api/notes', { title, text, date, done });
+    navigate('/dashboard');
+  };
+
+  const changeTitleChandler = (event) => {
+    const value = event.target.value;
+    setTitle(value);
+  };
+  const changeTextChandler = (event) => {
+    const value = event.target.value;
+    setText(value);
+  };
+  const changeDateChandler = (event) => {
+    const value = event.target.value;
+    setDate(value);
+  };
   return (
     <Container>
       <Link to="/dashboard" style={{ textDecoration: 'underline', textDecorationColor: ' white' }}>
@@ -27,13 +52,24 @@ const AddNote = () => {
         <List>
           <Form>
             <TitleDate>
-              <InputTitle type="text" placeholder={'Title'} />
-              <InputDate type="date" />
+              <InputTitle
+                type="text"
+                placeholder={'Title'}
+                spellCheck={false}
+                value={title}
+                onChange={changeTitleChandler}
+              />
+              <InputDate type="date" value={date} onChange={changeDateChandler} />
             </TitleDate>
-            <InputText placeholder={'text'} spellCheck={false} />
+            <InputText
+              placeholder={'text'}
+              spellCheck={false}
+              value={text}
+              onChange={changeTextChandler}
+            />
           </Form>
         </List>
-        <Button>Save</Button>
+        <Button onClick={addNoteFunction}>Save</Button>
       </NoteContainer>
     </Container>
   );
