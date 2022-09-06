@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 import {
   Container,
   List,
@@ -29,18 +31,37 @@ import {
 //   { _id: '1237', title: 'Łukaś', date: new window.Date(), description: 'Moja super notatka' },
 // ];
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [notes, setNotes] = useState([]);
-  const fetchNotes = async () => {
-    //pobieranie notatek
-    const res = await axios.get('http://localhost:3001/api/notes');
-    setNotes(res.data);
-    console.log(res);
+  // const fetchNotes = async () => {
+  //   //pobieranie notatek
+  //   const res = await axios.get('http://localhost:3001/api/notes');
+  //   setNotes(res.data);
+  //   console.log(res);
+  // };
+
+  // useEffect(() => {
+  //   fetchNotes();
+  // }, []);
+  const getUserNotes = async () => {
+    const req = await fetch('http://localhost:3001/api/notes', {
+      headers: {
+        'x-access-token': localStorage.getItem('token'),
+      },
+    });
+    const data = req.json();
+    setNotes(req.data);
+    console.log(data);
   };
-
   useEffect(() => {
-    fetchNotes();
+    const token = localStorage.getItem('token');
+    if (token) {
+      getUserNotes();
+    } else {
+      localStorage.removeItem('token');
+      navigate('/');
+    }
   }, []);
-
   const deleteNote = async (_id) => {
     console.log('usuwanei notatki', _id);
 
