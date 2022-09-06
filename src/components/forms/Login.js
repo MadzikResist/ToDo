@@ -9,7 +9,7 @@ import {
   Text,
   Title,
   Button,
-} from './LoginRegisterStyle';
+} from 'components/forms/LoginRegisterStyle';
 
 const Login = () => {
   return (

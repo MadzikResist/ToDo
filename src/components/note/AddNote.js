@@ -11,7 +11,7 @@ import {
   InputText,
   Button,
   BackArrow,
-} from './AddEditNoteStyle';
+} from 'components/note/AddEditNoteStyle';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
