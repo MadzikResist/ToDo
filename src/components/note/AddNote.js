@@ -23,8 +23,21 @@ const AddNote = () => {
   const [date, setDate] = useState();
   const [done, setDone] = useState(false);
 
-  const addNoteFunction = async () => {
-    await axios.post('http://localhost:3001/api/notes', { title, text, date, done });
+  const addNoteFunction = async (event) => {
+    event.preventDefault();
+    await fetch('http://localhost:3001/api/notes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        title,
+        text,
+        date,
+        done,
+      }),
+    });
     navigate('/dashboard');
   };
 

@@ -176,8 +176,8 @@ export const BackArrow = styled.svg`
   width: 40px;
   height: 40px;
   position: absolute;
-  top: 64px;
-  left: 16px;
+  top: 32px;
+  left: 0;
   transform: translateX(50%);
   cursor: pointer;
 `;

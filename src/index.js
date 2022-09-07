@@ -9,6 +9,8 @@ const GlobalStyle = createGlobalStyle`
       scrollbar-color: #ab815a #ffffff;
       padding : 0;
       margin: 0;
+      font-family: 'Mali', cursive;
+
     }
     *::-webkit-scrollbar {
       width: 14px;
@@ -24,7 +26,6 @@ const GlobalStyle = createGlobalStyle`
   body {
       overflow-x: hidden;
       overflow-y: hidden;
-      font-family: 'Mali', cursive;
     }
     
 `;

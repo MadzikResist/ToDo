@@ -66,6 +66,7 @@ export const LoginContainer = styled.div`
   border: 8px solid #d2b79e;
   //background: #a28062;
   background: rgba(184, 140, 97, 0.7);
+  margin-bottom: 16px;
 
   @media (min-width: 769px) {
     width: 70%;
@@ -92,8 +93,8 @@ export const Text = styled.p`
 export const Button = styled.button`
   margin-top: 24px;
   font-size: 1.5rem;
-  height: 70px;
-  width: 170px;
+  height: 55px;
+  width: 150px;
   color: #ab815a;
   font-weight: 600;
   background: url(${buttonImage}) center/cover no-repeat;
@@ -102,6 +103,10 @@ export const Button = styled.button`
   cursor: pointer;
   :hover {
     color: #67642d;
+  }
+  @media (min-width: 769px) {
+    height: 70px;
+    width: 170px;
   }
 `;
 export const RegisterContainer = styled.div`
@@ -127,4 +132,10 @@ export const Logo = styled.h1`
     margin: 80px 0;
     width: 100%;
   }
+`;
+export const ErrorMsg = styled.p`
+  color: red;
+  font-size: 0.9rem;
+  width: 100%;
+  height: 20px;
 `;

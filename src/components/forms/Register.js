@@ -9,6 +9,7 @@ import {
   Text,
   Title,
   Button,
+  ErrorMsg,
 } from 'components/forms/LoginRegisterStyle';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +18,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [error, setError] = useState('');
   const registerUser = async (event) => {
     event.preventDefault();
     const response = await fetch('http://localhost:3001/api/register', {
@@ -31,8 +32,18 @@ const Register = () => {
       }),
     });
     const data = await response.json();
-    if (data.status === 'ok') {
-      navigate('/');
+    //data.message only if error occured
+    console.log('errordata: ', data);
+    if (data.message) {
+      setError(data.message);
+      return;
+    }
+    // if (data.status === 'ok') {
+    //   navigate('/');
+    // }
+    if (data.user) {
+      localStorage.setItem('token', data.user);
+      navigate('/dashboard');
     }
   };
 
@@ -48,6 +59,7 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+
           <input
             type="password"
             placeholder="Password"
@@ -55,6 +67,7 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             style={{ marginTop: '24px' }}
           />
+          <ErrorMsg>{error || ''}</ErrorMsg>
         </Form>
         <Button onClick={registerUser}>Register</Button>
         <RegisterContainer>

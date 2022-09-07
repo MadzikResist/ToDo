@@ -27,7 +27,7 @@ export const ListContainer = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
-  margin-top: 8px;
+  margin-top: 3%;
   @media (min-width: 1200px) {
     width: 75%;
     padding: 0 24px;
@@ -38,13 +38,14 @@ export const Text = styled.h1`
   font-size: 2.5rem;
   color: #ab815a;
   text-align: center;
-  margin: 0;
   padding: 0;
+  margin-bottom: 8px;
 
   @media (min-width: 769px) {
     font-size: 5rem;
     color: #ab815a;
     width: 100%;
+    margin: 0;
   }
 `;
 export const Title = styled.h2`
@@ -71,6 +72,8 @@ export const Date = styled.p`
   }
   @media (min-width: 1920px) {
     width: 30%;
+    margin: 0;
+    margin-top: 4px;
   }
 `;
 export const TextToDo = styled.p`
@@ -83,6 +86,7 @@ export const TextToDo = styled.p`
   }
   @media (min-width: 1920px) {
     width: 68%;
+    margin-top: 4px;
   }
 `;
 export const CheckDone = styled.input`
@@ -173,7 +177,7 @@ export const Buttons = styled.div`
   width: 100%;
   margin-top: 10%;
   @media (min-width: 1200px) {
-    margin-top: 0;
+    margin-top: 8px;
     align-items: end;
   }
   @media (min-width: 1400px) {
@@ -181,8 +185,9 @@ export const Buttons = styled.div`
     width: 100%;
   }
   @media (min-width: 1920px) {
-    align-items: center;
+    align-items: start;
     width: 30%;
+    margin-top: 4px;
   }
 `;
 export const CheckBoxLabel = styled.label`
@@ -205,7 +210,7 @@ export const TitleDate = styled.div`
     width: 40%;
     margin: 0;
     padding: 0;
-    justify-content: start;
+    justify-content: center;
     gap: 16px;
   }
 `;
@@ -229,20 +234,56 @@ export const TextButtons = styled.div`
 export const ButtonAddNote = styled.button`
   margin-top: 24px;
   font-size: 1.5rem;
-  height: 70px;
-  width: 170px;
+  height: 50px;
+  width: 160px;
   color: #ab815a;
   font-weight: 600;
   background: url(${buttonImage}) center/cover no-repeat;
   border: none;
-  margin-bottom: 32px;
   cursor: pointer;
   :hover {
     color: #67642d;
+  }
+  @media (min-width: 769px) {
+    height: 70px;
+    width: 170px;
   }
 `;
 export const TitleButton = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+`;
+export const LogoutButton = styled.button`
+  padding: 0;
+  font-size: 1rem;
+  height: 35px;
+  width: 100px;
+  color: #ab815a;
+  font-weight: 600;
+  margin-top: 4%;
+  background: url(${buttonImage}) center/cover no-repeat;
+  border: none;
+  cursor: pointer;
+  :hover {
+    color: #67642d;
+  }
+  @media (min-width: 769px) {
+  }
+  @media (min-width: 1200px) {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    transform: translateX(-20%);
+    height: 45px;
+    width: 140px;
+    margin: 0;
+  }
+  @media (min-width: 1920px) {
+    position: absolute;
+    right: 0;
+    transform: translateX(-20%);
+    height: 45px;
+    width: 140px;
+  }
 `;
