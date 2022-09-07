@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/ToDo/static/js/main.a6122b3b.js",
+    "static/media/background2.png": "/ToDo/static/media/background2.adcc6736a424579a434c.png",
+    "static/media/backgroundMobile.png": "/ToDo/static/media/backgroundMobile.32ec1aff54cb86fba985.png",
+    "index.html": "/ToDo/index.html",
+    "main.a6122b3b.js.map": "/ToDo/static/js/main.a6122b3b.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a6122b3b.js"
+  ]
+}
