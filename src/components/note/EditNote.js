@@ -25,7 +25,11 @@ const EditNote = () => {
   const [date, setDate] = useState(state.date);
 
   const EditNoteFunction = async () => {
-    await axios.put('http://localhost:3001/api/notes/' + state?._id, { title, text, date });
+    await axios.put('https://nodejs-to-do-server.herokuapp.com/api/notes/' + state?._id, {
+      title,
+      text,
+      date,
+    });
     navigate('/dashboard');
     console.log(title, text, date);
   };

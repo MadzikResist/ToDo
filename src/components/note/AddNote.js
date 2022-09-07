@@ -13,9 +13,9 @@ import {
   BackArrow,
 } from 'components/note/AddEditNoteStyle';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 const AddNote = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
@@ -25,7 +25,7 @@ const AddNote = () => {
 
   const addNoteFunction = async (event) => {
     event.preventDefault();
-    await fetch('http://localhost:3001/api/notes', {
+    await fetch('https://nodejs-to-do-server.herokuapp.com/api/notes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

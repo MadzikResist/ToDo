@@ -45,7 +45,7 @@ const Dashboard = () => {
   //   fetchNotes();
   // }, []);
   const getUserNotes = async () => {
-    const req = await fetch('https://nodejs-to-do-server.herokuapp.com//api/notes', {
+    const req = await fetch('https://nodejs-to-do-server.herokuapp.com/api/notes', {
       headers: {
         'Content-Type': 'application/json',
         'x-access-token': localStorage.getItem('token'),
@@ -75,7 +75,7 @@ const Dashboard = () => {
       copyOfArray.splice(indexId, 1);
       return copyOfArray;
     });
-    await axios.delete('https://nodejs-to-do-server.herokuapp.com//api/notes/' + _id);
+    await axios.delete('https://nodejs-to-do-server.herokuapp.com/api/notes/' + _id);
   };
   const check = (_id, done) => {
     const newToDoList = notes.map((note) => {
@@ -85,7 +85,7 @@ const Dashboard = () => {
 
     setNotes(newToDoList);
     console.log(newToDoList);
-    axios.put('https://nodejs-to-do-server.herokuapp.com//api/notes/' + _id, { done: !done });
+    axios.put('https://nodejs-to-do-server.herokuapp.com/api/notes/' + _id, { done: !done });
   };
   const logout = () => {
     localStorage.removeItem('token');

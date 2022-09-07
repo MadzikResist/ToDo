@@ -22,7 +22,7 @@ const Login = () => {
 
   const loginUser = async (event) => {
     event.preventDefault();
-    const response = await fetch('https://nodejs-to-do-server.herokuapp.com//api/login', {
+    const response = await fetch('https://nodejs-to-do-server.herokuapp.com/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
