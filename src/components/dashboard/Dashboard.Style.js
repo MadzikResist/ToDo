@@ -76,7 +76,7 @@ export const Date = styled.p`
     margin-top: 4px;
   }
 `;
-export const TextToDo = styled.p`
+export const TextToDo = styled.pre`
   width: 100%;
   word-wrap: break-word;
 
