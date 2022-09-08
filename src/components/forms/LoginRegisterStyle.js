@@ -4,7 +4,7 @@ import backgroundMobile from 'images/backgroundMobile.png';
 import background2 from 'images/background2.png';
 
 export const Container = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   background: url(${backgroundMobile}) center/cover;
   background-size: contain;
   display: flex;
