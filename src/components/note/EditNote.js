@@ -25,7 +25,7 @@ const EditNote = () => {
   const [date, setDate] = useState(state.date);
 
   const EditNoteFunction = async () => {
-    await axios.put('https://nodejs-to-do-server.herokuapp.com/api/notes/' + state?._id, {
+    await axios.put('https://todo-1zvu.onrender.com/api/notes/' + state?._id, {
       title,
       text,
       date,

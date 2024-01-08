@@ -25,7 +25,7 @@ const AddNote = () => {
 
   const addNoteFunction = async (event) => {
     event.preventDefault();
-    await fetch('https://nodejs-to-do-server.herokuapp.com/api/notes', {
+    await fetch('https://todo-1zvu.onrender.com/api/notes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
